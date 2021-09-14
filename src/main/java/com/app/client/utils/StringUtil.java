@@ -47,7 +47,7 @@ public class StringUtil {
 
 
 
-   public static String help=
+   public static final String help=
            "                                                                 \n"+
            "                                                                 \n"+
            " 有关一些命令的详细信息，请键入 help 命令                                              \n" +
@@ -58,4 +58,8 @@ public class StringUtil {
            " cd           cd      [-path]               查看服务端文件夹                        \n" +
            " pass         pass    [-id]                 客户端填下服务端密钥验证连接              \n" +
            " q                                          退出帮助文档                           \n";
+    
+    
+    public static final String cmd="FILE CMD >";
+    
 }
