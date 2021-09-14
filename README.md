@@ -3,7 +3,7 @@
 
 https://github.com/jon-yy/FILECmd
 
-**_一、项目 LOGO  (^_^)_** 
+**一、项目 LOGO         (^  ^)** 
 
 
         上传或下载文件命令行工具，且支持各种大小文件。               
