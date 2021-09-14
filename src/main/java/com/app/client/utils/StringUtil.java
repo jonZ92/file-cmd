@@ -56,10 +56,14 @@ public class StringUtil {
            " upload       upload  [-path]               上传文件到服务端                        \n" +
            " close        close                         关闭链接                               \n" +
            " cd           cd      [-path]               查看服务端文件夹                        \n" +
-           " pass         pass    [-id]                 客户端填下服务端密钥验证连接              \n" +
-           " q                                          退出帮助文档                           \n";
+           " pass         pass    [-id]                 客户端填下服务端密钥验证连接              \n";
     
     
     public static final String cmd="FILE CMD >";
+
+    public static volatile  String cmdCode="";
+
+    public static volatile String coder="";
+
     
 }

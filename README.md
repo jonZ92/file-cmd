@@ -39,8 +39,7 @@ _**二 、帮助文档**_
          cd           cd      [-path]               查看服务端文件夹                         
          pass         pass    [-id]                 客户端填下服务端密钥验证连接               
          close        close                         关闭链接                                
-         exit         exit                          结束进程                               
-         q                                          退出帮助文档  
+         exit         exit                          结束进程
            
 
 
