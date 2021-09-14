@@ -14,7 +14,7 @@ public class MainApp {
     private static final Logger log = LogManager.getLogger(MainApp.class);
 
     public static void main(String[] args) {
-
+        log.info(StringUtil.ascii_name);
         log.info(StringUtil.help);
     }
 }
