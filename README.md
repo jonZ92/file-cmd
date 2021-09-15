@@ -1,7 +1,7 @@
 ﻿# file-cmd
 文上传或下载命令行工具， netty 做为通信框架
 
-https://github.com/jon-yy/FILECmd
+https://github.com/jon-yy/file-cmd
 
 **一、项目 LOGO         (^  ^)** 
 
