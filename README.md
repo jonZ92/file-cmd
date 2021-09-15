@@ -1,4 +1,4 @@
-﻿# clientFileCmd
+﻿# file-cmd
 文上传或下载命令行工具， netty 做为通信框架
 
 https://github.com/jon-yy/FILECmd
@@ -42,9 +42,15 @@ _**二 、帮助文档**_
          exit         exit                          结束进程
            
 
+三、服务端项目地址
 
+https://github.com/jon-yy/file-server
                
+四、 编译 file-server 项目， 
 
+并在目标主机运行 file-server项目，运行命令: java -jar file-server
+
+默认端口 7800 并在项目当前目录生成 dir_file  文件夹
 
            
 
