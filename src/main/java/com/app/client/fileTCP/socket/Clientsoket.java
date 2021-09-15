@@ -59,6 +59,10 @@ public class Clientsoket {
         connect();
     }
 
+    public void cdCmd() {
+        connect();
+    }
+
 
     public void connect() {
         EventLoopGroup group = new NioEventLoopGroup();
@@ -83,16 +87,14 @@ public class Clientsoket {
         } catch (Exception e) {
 
             //log.error("运行出错:{}", e.getMessage());
+            System.out.println("运行出错:" + e.getMessage());
 
         } finally {
 
             group.shutdownGracefully();
 
-            //log.info("客户端已关闭");
-
             try {
                 TimeUnit.SECONDS.sleep(1);//休眠10s
-                // log.info("服务运行线程: {}", Thread.currentThread().getName());
 
                 //executor.execute(()->connect());
             } catch (Exception ex) {

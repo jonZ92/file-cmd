@@ -7,20 +7,19 @@ import java.io.Serializable;
  */
 
 
-public class FilePojo implements Serializable {
-
+public final class FileBody implements Serializable {
 
     private static final long serialVersionUID = -3396283819418221296L;
+
     private String fileName;
 
-    private long beging;
+    private long begin;
 
     private byte[] bytes;
 
     private long endl;
 
     private String filePath;
-
 
     public String getFileName() {
         return fileName;
@@ -30,12 +29,12 @@ public class FilePojo implements Serializable {
         this.fileName = fileName;
     }
 
-    public long getBeging() {
-        return beging;
+    public long getBegin() {
+        return begin;
     }
 
-    public void setBeging(long beging) {
-        this.beging = beging;
+    public void setBegin(long begin) {
+        this.begin = begin;
     }
 
     public byte[] getBytes() {

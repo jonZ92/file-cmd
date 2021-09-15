@@ -5,7 +5,7 @@ package com.app.client.utils;
  */
 
 
-public class StringUtil {
+public final class StringUtil {
 
     private StringUtil() {
     }
@@ -47,7 +47,7 @@ public class StringUtil {
 
 
 
-   public static final String help=
+   public static final String HELP=
            "                                                                 \n"+
            "                                                                 \n"+
            " 有关一些命令的详细信息，请键入 help 命令                                              \n" +
@@ -56,14 +56,17 @@ public class StringUtil {
            " upload       upload  [-path]               上传文件到服务端                        \n" +
            " close        close                         关闭链接                               \n" +
            " cd           cd      [-path]               查看服务端文件夹                        \n" +
-           " pass         pass    [-id]                 客户端填下服务端密钥验证连接              \n";
+           " pass         pass    [-id]                 客户端填下服务端密钥验证连接              \n"+
+           " exit         exit                          结束进程";
     
     
-    public static final String cmd="FILE CMD >";
+    public static  String CMD_CHAR="FILE CMD >";
 
-    public static volatile  String cmdCode="";
+    public static volatile  String CMD_CODE="";
 
-    public static volatile String coder="";
+    public static volatile String CODER="";
+
+    public static volatile String PATH_CMD="";
 
     
 }

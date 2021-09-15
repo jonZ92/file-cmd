@@ -11,8 +11,7 @@ import java.util.Scanner;
  */
 
 
-public class CommandTools {
-
+public final class CommandTools {
 
 
     /**
@@ -32,33 +31,50 @@ public class CommandTools {
                     System.exit(0); //结束进程
                     break;
                 case "help":
-                    System.out.print(StringUtil.help);//帮助文档
+                    System.out.print(StringUtil.HELP);//帮助文档
                     out = cmdTools();
                     break;
                 case "conn":
-                    StringUtil.cmdCode="conn";
+                    StringUtil.CMD_CODE = "conn";
                     client.conn(subOut[1], Integer.parseInt(subOut[2]));
                     out = cmdTools();
                     break;
                 case "close":
-                    StringUtil.cmdCode="close";
+                    StringUtil.CMD_CODE = "close";
                     client.close();
-                    out=cmdTools();
-                    break;
-                case "pass":
-                    StringUtil.coder=subOut[1];
-                    StringUtil.cmdCode="pass";
-                    client.pass();
-                    out=cmdTools();
-                    break;
-                default:
-                    System.out.println("输入命令有误: "+subOut[0]);
                     out = cmdTools();
                     break;
+                case "pass":
+                    StringUtil.CODER = subOut[1];
+                    StringUtil.CMD_CODE = "pass";
+                    client.pass();
+                    out = cmdTools();
+                    break;
+                case "cd":
 
+                    if(io.netty.util.internal.StringUtil.isNullOrEmpty(StringUtil.PATH_CMD)){
+                        StringUtil.PATH_CMD = subOut[1];
+                    }else{
+                        if(StringUtil.PATH_CMD.startsWith(subOut[1])){
+                            StringUtil.PATH_CMD = subOut[1];
+                        }else{
+                            StringUtil.PATH_CMD= StringUtil.PATH_CMD+ subOut[1]+"/";
+                        }
+
+                    }
+                    StringUtil.CMD_CODE = "cd";
+                    client.cdCmd();
+                    out = cmdTools();
+                    break;
+                case "":
+                    out = cmdTools();
+                    break;
+                default:
+                    System.out.println("输入命令有误: " + subOut[0]);
+                    out = cmdTools();
+                    break;
             }
         }
-
     }
 
     /**
@@ -69,7 +85,7 @@ public class CommandTools {
         boolean ident = true;
         int index = -1;
         char[] chars = new char[512];
-        System.out.print(StringUtil.cmd);
+        System.out.print(StringUtil.CMD_CHAR);
         do {
             index++;
             chars[index] = (char) System.in.read();

@@ -1,15 +1,9 @@
 package com.app.client.fileTCP.handler;
 
-import com.app.client.fileTCP.pojo.FilePojo;
+import com.app.client.utils.HandlerUtil;
 import com.app.client.utils.StringUtil;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import java.io.File;
-import java.io.RandomAccessFile;
-import java.text.DecimalFormat;
 
 /**
  * @author jon 2021:09:14
@@ -21,17 +15,21 @@ public class ClientFaileHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        if ("close".equals(StringUtil.cmdCode)) {
-            ctx.writeAndFlush("close:" + StringUtil.coder);
-            //ctx.close();
-        } else if ("pass".equals(StringUtil.cmdCode)) {
-            ctx.writeAndFlush("pass:" + StringUtil.coder);
-            //ctx.close();
-        }else if("conn".equals(StringUtil.cmdCode)){
+        if ("close".equals(StringUtil.CMD_CODE)) {
+
+            ctx.writeAndFlush("close%#%" + StringUtil.CODER);
+
+        } else if ("pass".equals(StringUtil.CMD_CODE)) {
+
+            ctx.writeAndFlush("pass%#%" + StringUtil.CODER);
+
+        } else if ("conn".equals(StringUtil.CMD_CODE)) {
+
             ctx.writeAndFlush("CMD");
+
+        }else if("cd".equals(StringUtil.CMD_CODE)){
+            ctx.writeAndFlush("cd%#%"+StringUtil.CODER+"%#%"+StringUtil.PATH_CMD);
         }
-
-
     }
 
 
@@ -40,10 +38,9 @@ public class ClientFaileHandler extends ChannelInboundHandlerAdapter {
         if (msg instanceof String) {
             String code = (String) msg;
             if ("OK".equals(code)) {
-                //System.out.println("连接成功");
                 ctx.close();
             } else {
-                System.out.println(code);
+                HandlerUtil.printOut(code);
                 ctx.close();
             }
         }
@@ -51,9 +48,7 @@ public class ClientFaileHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        //log.error("错误============>:{}", cause.getMessage());
+        System.out.println("错误============>"+cause.getMessage());
         ctx.close();
     }
-
-
 }
