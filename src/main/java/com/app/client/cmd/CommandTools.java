@@ -1,6 +1,7 @@
 package com.app.client.cmd;
 
 import com.app.client.fileTCP.socket.Clientsoket;
+import com.app.client.utils.HandlerUtil;
 import com.app.client.utils.StringUtil;
 
 import java.util.Scanner;
@@ -31,12 +32,14 @@ public final class CommandTools {
                     System.exit(0); //结束进程
                     break;
                 case "help":
-                    System.out.print(StringUtil.HELP);//帮助文档
+                    System.out.println(StringUtil.HELP);//帮助文档
+                    System.out.println("");
+                    System.out.println("");
                     out = cmdTools();
                     break;
                 case "conn":
                     StringUtil.CMD_CODE = "conn";
-                    client.conn(subOut[1], Integer.parseInt(subOut[2]));
+                    client.conn(subOut);
                     out = cmdTools();
                     break;
                 case "close":
@@ -51,19 +54,14 @@ public final class CommandTools {
                     out = cmdTools();
                     break;
                 case "cd":
-
-                    if(io.netty.util.internal.StringUtil.isNullOrEmpty(StringUtil.PATH_CMD)){
-                        StringUtil.PATH_CMD = subOut[1];
-                    }else{
-                        if(StringUtil.PATH_CMD.startsWith(subOut[1])){
-                            StringUtil.PATH_CMD = subOut[1];
-                        }else{
-                            StringUtil.PATH_CMD= StringUtil.PATH_CMD+ subOut[1]+"/";
-                        }
-
-                    }
+                    HandlerUtil.driveLetter(subOut);
                     StringUtil.CMD_CODE = "cd";
                     client.cdCmd();
+                    out = cmdTools();
+                    break;
+                case "upload":
+                    StringUtil.CMD_CODE = "upload";
+                    client.upLoad(subOut);
                     out = cmdTools();
                     break;
                 case "":

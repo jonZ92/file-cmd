@@ -17,7 +17,7 @@ public final class StringUtil {
             "                                                                       \n" +
             "            上传或下载文件命令行工具，且支持各种大小文件。                    \n" +
             "                                                                       \n" +
-            "            https://github.com/jon-yy/FILECmd                          \n" +
+            "            https://github.com/jon-yy/file-cmd                         \n" +
             "                                                                       \n" +
             "                                                                       \n" +
             "                  888    888888888   888\n" +
@@ -67,6 +67,15 @@ public final class StringUtil {
     public static volatile String CODER="";
 
     public static volatile String PATH_CMD="";
+
+
+    public static volatile String FILE_PATH="";
+
+
+
+    public static final String [] DRIVE_LETTER={"c:/","d:/","e:/","f:/","g:/","h:/","/"};
+
+
 
     
 }
